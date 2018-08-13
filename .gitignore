@@ -22,6 +22,7 @@ libraries/TimerOne
 
 ###################
 .dropbox.cache
+.vscode
 
 # The rest are from https://help.github.com/articles/ignoring-files #
 #####################################################################

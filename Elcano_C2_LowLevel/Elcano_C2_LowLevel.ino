@@ -1,4 +1,5 @@
 #include <Settings.h>
+#include <ElcanoSerial.h>
 #include <PID_v1.h>
 #include <SPI.h>
 #include <Servo.h>
@@ -206,9 +207,6 @@ class Brakes
   const unsigned long MaxHi_ms = 800;
  } ;
 
-// For normal operation
-const long int loop_time_ms = 100;  // Limits time in the loop.
-
 Brakes::Brakes()
 {
   pinMode( LeftBrakeOnPin, OUTPUT);
@@ -345,7 +343,7 @@ void loop()
   // Get the next loop start time. Note this (and the millis() counter) will
   // roll over back to zero after they exceed the 32-bit size of unsigned long,
   // which happens after about 1.5 months of operation 
-  unsigned long timeStart_ms = millis();
+  const unsigned long timeStart_ms = millis();
   // INSERT ANY LOOP CODE BELOW THIS POINT !!
 
   static long int desired_speed_cmPs, desired_angle;
